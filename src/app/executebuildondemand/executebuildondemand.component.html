@@ -1,0 +1,85 @@
+<p-panel header="Schedule Automation">
+
+<!-- <p-dropdown [options]="environment" [(ngModel)]="selectedenvironment"></p-dropdown> -->
+<div class="form-group row">
+    <div class="col-md-6">
+      <label>
+        Suite Type :
+      </label>
+    </div>
+    <div class="col-md-6">
+      <p-dropdown [options]="test_suite_types" (onChange)="populateTestCases($event)" [(ngModel)]="selectedSuitType" [filter]="true" filterBy="label,value.name"></p-dropdown>
+    </div>
+</div>
+<div class="form-group row" *ngIf="selectedSuitType['name']!=='DEFECT RETEST'">
+    <div class="col-md-6">
+      <label>
+        Test Area :
+      </label>
+    </div>
+    <div class="col-md-6">
+        <p-dropdown [options]="test_areas" (onChange)="populateTestCases($event)" [(ngModel)]="selectedTestArea" [filter]="true" filterBy="label,value.name"></p-dropdown>
+  
+    </div>
+</div>  
+<div class="form-group row" *ngIf="selectedSuitType['name']!=='DEFECT RETEST'">
+  <div class="col-md-6">
+    <label>
+      Test Cases :
+    </label>
+  </div>
+  <div class="col-md-6">
+      <p-multiSelect [options]="test_cases" [(ngModel)]="selectedTestCase" [filter]="true" filterBy="label,value"></p-multiSelect>
+
+  </div>
+</div>
+<div class="form-group row" *ngIf="selectedSuitType['name']!=='DEFECT RETEST'">
+  <div class="col-md-6">
+    <label>
+      Test Environment :
+    </label>
+  </div>
+  <div class="col-md-6">
+    <p-dropdown [options]="test_envs" [(ngModel)]="selectedenvironment" [filter]="true" filterBy="label,value.name"></p-dropdown>
+  </div>
+</div>
+<div class="form-group row"  *ngIf="selectedSuitType['name']=='DEFECT RETEST'">
+  <div class="col-md-6">
+    <label>
+      Defect Id :
+    </label>
+  </div>
+  <div class="col-md-6">
+    <span class="ui-float-label">
+      <input id="float-input" type="text" size="20" pInputText [(ngModel)]="defectID"> 
+      <label for="float-input">Enter Defect Id</label>
+  </span>    
+</div>
+</div>
+<div class="form-group row">
+  <div class="col-md-5 pull-left"  *ngIf="selectedSuitType['name']!=='DEFECT RETEST'">
+    <button pButton type="button" (click)="scheduleNow($event)"  label="Schedule Now" class="ui-button-raised ui-button-square"></button>
+  </div>
+  <div class="col-md-5 pull-right"  *ngIf="selectedSuitType['name']!=='DEFECT RETEST' && selectedSuitType['name']!==''">
+      <button pButton type="button" (click)="clickSuiteType($event)"  label="Schedule Later" class="ui-button-raised ui-button-square"></button>
+  </div>
+  <div class="col-md-8 pull-left" *ngIf="selectedSuitType['name']=='DEFECT RETEST'"></div>
+  <div class="col-md-2 pull-right" *ngIf="selectedSuitType['name']=='DEFECT RETEST'">
+    <button pButton type="button" (click)="retest()"  label="Retest" class="ui-button-raised ui-button-square"></button>
+</div>
+</div>
+</p-panel>
+
+
+<p-dialog header="The Testing Machine" [(visible)]="retestDisplay" [style]="{width: '300px', height: '80px'}">
+  Defect ID: {{defectID}}
+</p-dialog>
+
+<p-dialog header="The Testing Machine" [(visible)]="scheduleNowDisplay" [style]="{width: '300px', height: '80px'}">
+ 
+  <ul>
+    <li >
+      Jenkins build has been triggered.
+    </li>
+  </ul><br>
+</p-dialog>

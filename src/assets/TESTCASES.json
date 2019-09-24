@@ -1,0 +1,79 @@
+{
+  "testCases":
+  [{
+      "suiteType":"SANITY",
+      "testCaseName":"NEW IPTV LOW RISK",
+      "testArea":"Wireline Consumer"
+  },
+  {
+    "suiteType":"SANITY",
+    "testCaseName":"NEW IPTV BB LOW RISK",
+    "testArea":"Wireline Consumer"
+},
+{
+    "suiteType":"SANITY",
+    "testCaseName":"EXISTING IPTV LOW RISK",
+    "testArea":"Wireline Consumer"
+},
+  {
+      "suiteType":"SANITY",
+      "testCaseName":"NEW DTV LOW RISK",
+      "testArea":"Wireline Consumer"
+  },
+  {
+      "suiteType":"PROGRESSION",
+      "testCaseName":"NEW IPTV DEBT SCENARIO",
+      "testArea":"Wireline Consumer"
+  },
+  {
+      "suiteType":"SANITY",
+      "testCaseName":"NEW BOOST",
+      "testArea":"Wireline SMB"
+  },
+  {
+      "suiteType":"REGRESSION",
+      "testCaseName":"NEW VOIP LOW RISK",
+      "testArea":"Wireline Consumer"
+  },
+  {
+      "suiteType":"SANITY",
+      "testCaseName":"NEW POTS + DSL",
+      "testArea":"Wireline SMB"
+  },
+  {
+      "suiteType":"SANITY",
+      "testCaseName":"NEW IPTV AND VOIP PORT IN",
+      "testArea":"Wireline Consumer"
+  },
+  {
+      "suiteType":"PROGRESSION",
+      "testCaseName":"NEW IPTV BRODBAND",
+      "testArea":"Wireline Consumer"
+  },
+  {
+      "suiteType":"REGRESSION",
+      "testCaseName":"NEW IPTV MEDIUM RISK",
+      "testArea":"Wireline Consumer"
+  },
+   {
+      "suiteType":"REGRESSION",
+      "testCaseName":"NEW iphone DF",
+      "testArea":"Wireless Consumer"
+  },
+  {
+      "suiteType":"SANITY",
+      "testCaseName":"NEW iphone C2S",
+      "testArea":"Wireless Consumer"
+  },
+  {
+      "suiteType":"PROGRESSION",
+      "testCaseName":"New iPhone PDO",
+      "testArea":"Wireless Consumer"
+  },
+  {
+      "suiteType":"PROGRESSION",
+      "testCaseName":"New iPhone DOO",
+      "testArea":"Wireless Consumer"
+  }
+  ]
+}

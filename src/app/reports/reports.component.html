@@ -1,0 +1,43 @@
+<p-panel header="Reports">
+  <div class="container">
+      <button pButton type="button" (click)="showReport($event)"  label="Defect Retest Result" class="ui-button-raised ui-button-square"></button>
+      <p-chart *ngIf="showGraph" type="pie" [data]="data" ></p-chart>
+  </div>
+ 
+  <div>
+ <table>
+   <tr>
+     <td>
+        <button *ngIf="showGraph" pButton type="button" (click)="createDefect($event)"  label="Open Defect" class="ui-button-raised ui-button-square"></button>
+
+     </td>
+     <td>
+        <button *ngIf="showGraph" pButton type="button"   label="Connect to Prodigy" class="ui-button-raised ui-button-square"></button>
+
+     </td>
+   </tr>
+ </table>
+  </div>
+
+  <p-dialog header="The Testing Machine" [(visible)]="defectCreatedDisplay" [style]="{width: '300px', height: '80px'}">
+      
+      <ul>
+        <li>
+          Defect has been created and assigned to  OCE Dev.
+        </li>
+      </ul>
+    </p-dialog>
+  
+</p-panel>
+
+<p-dialog header="The Testing Machine" [(visible)]="defectRetestResult" [style]="{width: '300px', height: '80px'}">
+      
+  <ul>
+    <li>
+      Defect 820491 Retest Failed.
+    </li>
+  </ul>
+</p-dialog>
+
+
+
